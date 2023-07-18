@@ -2,7 +2,7 @@
 import HideAppBar from "src/components/HideAppBar/page";
 import { Inter } from "next/font/google";
 import "./reset.css";
-import CustomThemeProvider from "src/components/CustomThemeToggleButton/CustomThemeProvider";
+import CustomThemeProvider from "src/utils/theme/CustomThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 type PropsType = {

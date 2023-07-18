@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { useThemeToggle } from "./CustomThemeProvider";
+import { useThemeToggle } from "src/utils/theme/CustomThemeProvider";
 
 const CustomThemeToggleButton = () => {
   const { isDarkMode, toggleTheme } = useThemeToggle();

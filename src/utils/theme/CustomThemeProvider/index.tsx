@@ -35,7 +35,7 @@ const CustomThemeProvider = ({
     palette: {
       mode: isDarkMode ? "dark" : "light",
       primary: {
-        main: isDarkMode ? "#203a89" : "#2976a2",
+        main: isDarkMode ? "#c03a89" : "#2976a2",
       },
       secondary: {
         main: isDarkMode ? "#3a8a36" : "#c74726",

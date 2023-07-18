@@ -1,1 +1,0 @@
-declaredeclare module "react-leaflet-ant-path";

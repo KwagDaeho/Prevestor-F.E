@@ -1,17 +1,10 @@
-// 'use client';
+import Counter from "src/components/Counter/page";
 
-// Props의 Type 선언
-interface PropsType {
-  num1?: number;
-  num2?: number;
-}
-
-const Test = ({ num1 = 1, num2 = 2 }: PropsType) => {
+const Test = () => {
   return (
     <>
-      <div>
-        {num1}+{num2} = {num1 + num2}
-      </div>
+      <div>T E S T</div>
+      <Counter />
     </>
   );
 };

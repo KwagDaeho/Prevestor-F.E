@@ -2,7 +2,7 @@
 import { styled } from "@mui/system";
 
 type PropsType = {
-  children: React.ReactNode;
+  children: React.ReactElement;
 };
 
 const TestDiv = styled("div")`
