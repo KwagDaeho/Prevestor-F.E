@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const GetPageList = () => {
-  const pages = ["Markets", "Test"];
+  const pages = ["Markets", "LeaderBoard", "Test"];
   return (
     <>
       {pages.map((pageName, idx) => {

@@ -8,7 +8,9 @@ function Gnb({}: PropsType) {
   return (
     <div id="header_gnb_wrap">
       <Link href={"/"}>
-        <h2>Prevestor</h2>
+        <h2>
+          Prevestor
+        </h2>
       </Link>
       <nav>
         <ol id="header_gnb">

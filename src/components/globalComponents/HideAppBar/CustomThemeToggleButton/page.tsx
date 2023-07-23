@@ -3,10 +3,12 @@ import { useThemeToggle } from "src/utils/theme/CustomThemeProvider";
 
 const CustomThemeToggleButton = () => {
   const { isDarkMode, toggleTheme } = useThemeToggle();
-
   return (
-    <Button onClick={toggleTheme} variant="contained">
-      {isDarkMode ? "Dark" : "Light"} Mode
+    <Button
+      sx={{ marginLeft: "auto" }}
+      onClick={toggleTheme}
+      variant="contained">
+      {isDarkMode ? "Light" : "Dark"} Mode
     </Button>
   );
 };

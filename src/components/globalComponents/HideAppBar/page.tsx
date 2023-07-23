@@ -5,8 +5,9 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
-import Gnb from "../Gnb/page";
-import CustomThemeToggleButton from "../CustomThemeToggleButton/page";
+import Gnb from "src/components/Gnb/page";
+import CustomThemeToggleButton from "./CustomThemeToggleButton/page";
+import { RecoilRoot } from "recoil";
 
 interface Props {
   /**
@@ -15,7 +16,6 @@ interface Props {
    */
   window?: () => Window;
   children: React.ReactElement;
-  inner: React.ReactElement;
 }
 
 function HideOnScroll(props: Props) {
@@ -36,16 +36,18 @@ function HideOnScroll(props: Props) {
 
 export default function HideAppBar(props: Props) {
   return (
-    <React.Fragment>
-      <HideOnScroll {...props}>
-        <AppBar color="secondary">
-          <Toolbar className="header-wrap">
-            <Gnb />
-            <CustomThemeToggleButton />
-          </Toolbar>
-        </AppBar>
-      </HideOnScroll>
-      {props.inner}
-    </React.Fragment>
+    <RecoilRoot>
+      <React.Fragment>
+        <HideOnScroll {...props}>
+          <AppBar color="secondary">
+            <Toolbar className="header-wrap">
+              <Gnb />
+              <CustomThemeToggleButton />
+            </Toolbar>
+          </AppBar>
+        </HideOnScroll>
+        {props.children}
+      </React.Fragment>
+    </RecoilRoot>
   );
 }

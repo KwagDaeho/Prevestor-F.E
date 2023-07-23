@@ -1,19 +1,15 @@
-"use client";
-import { styled } from "@mui/system";
+import { DivPrimaryMain } from "src/components/MuiStyled/div";
 
 type PropsType = {
   children: React.ReactElement;
 };
 
-const TestDiv = styled("div")`
-  color: ${(props) => props.theme.palette.primary.main};
-`;
 function ExampleLayout({ children }: PropsType) {
   return (
-    <TestDiv>
+    <DivPrimaryMain>
       <h1>It is Test Layout.</h1>
       {children}
-    </TestDiv>
+    </DivPrimaryMain>
   );
 }
 

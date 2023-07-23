@@ -11,7 +11,7 @@ export const arraySum = (arrNum: number[]) => {
   return arrNum.reduce((acc, curr) => acc + curr, 0);
 };
 
-const Example = ({ num1 = 1, num2 = 2, num3 = 3 }) => {
+const Example = ({ num1 = 1, num2 = 2, num3 = 3 }: PropsType) => {
   return (
     <>
       <div>

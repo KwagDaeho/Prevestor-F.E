@@ -1,5 +1,4 @@
-// "use client";
-import HideAppBar from "src/components/HideAppBar/page";
+import HideAppBar from "src/components/globalComponents/HideAppBar/page";
 import { Inter } from "next/font/google";
 import "./reset.css";
 import CustomThemeProvider from "src/utils/theme/CustomThemeProvider";
@@ -10,7 +9,7 @@ type PropsType = {
 };
 export const metadata = {
   title: "Prevestor",
-  description: "Prevestor :: Predict and invest for any event",
+  description: "Prevestor :: Predict & invest for everything."
 };
 
 export default function RootLayout({ children }: PropsType) {
@@ -18,8 +17,8 @@ export default function RootLayout({ children }: PropsType) {
     <html lang="ko">
       <body suppressHydrationWarning={true} className={inter.className}>
         <CustomThemeProvider>
-          <HideAppBar inner={<main>{children}</main>}>
-            <></>
+          <HideAppBar>
+            <main>{children}</main>
           </HideAppBar>
         </CustomThemeProvider>
       </body>
