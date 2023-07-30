@@ -5,7 +5,7 @@ type PropsType = {
 function Layout({ children }: PropsType) {
   return (
     <div>
-      <h1>This is Leader Board Page Layout.</h1>
+      <h1>This is EVENTS Page Layout.</h1>
       {children}
     </div>
   );

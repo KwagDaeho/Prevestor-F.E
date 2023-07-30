@@ -29,19 +29,25 @@ interface CustomThemeProviderProps {
 const CustomThemeProvider = ({
   children,
 }: CustomThemeProviderProps): ReactElement => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
+  const colorSet = {
+    point1: "#1A61B1",
+  };
   const theme = createTheme({
     palette: {
       mode: isDarkMode ? "dark" : "light",
       primary: {
-        main: isDarkMode ? "#bcbcca" : "#1986a2",
-        light: isDarkMode ? "#bcbcca" : "#1986a2",
-        dark: isDarkMode ? "#bcbcca" : "#1986a2",
-        contrastText: isDarkMode ? "#1986a2" : "#aaa",
+        main: colorSet.point1,
+        light: isDarkMode ? "#fff" : "#99f",
+        dark: isDarkMode ? "#aaa" : "#000",
+        contrastText: isDarkMode ? "#111" : "#fff",
       },
       secondary: {
-        main: isDarkMode ? "#171737" : "#888",
+        main: isDarkMode ? "#d5d5d5" : "#d2d2d2",
+        light: isDarkMode ? "#fff" : "#1986a2",
+        dark: colorSet.point1,
+        contrastText: isDarkMode ? "#111" : "#d5d5d5",
       },
       error: {
         main: isDarkMode ? "#bcbcca" : "#1986a2",
@@ -56,10 +62,10 @@ const CustomThemeProvider = ({
         contrastText: isDarkMode ? "#bcbcca" : "#1986a2",
       },
       info: {
-        main: isDarkMode ? "#bcbcca" : "#1986a2",
-        light: isDarkMode ? "#bcbcca" : "#1986a2",
-        dark: isDarkMode ? "#bcbcca" : "#1986a2",
-        contrastText: isDarkMode ? "#bcbcca" : "#1986a2",
+        main: isDarkMode ? "#e7e7e7" : "#0c0c0c",
+        light: isDarkMode ? "#fff" : "#1986a2",
+        dark: colorSet.point1,
+        contrastText: isDarkMode ? "#111" : "#e7e7e7",
       },
       success: {
         main: isDarkMode ? "#1986a2" : "#bcbcca",
@@ -101,19 +107,45 @@ const CustomThemeProvider = ({
       action: {
         active: "#f90",
         hover: "#f90",
-        hoverOpacity: 0.8,
+        hoverOpacity: 0.7,
         selected: "#111",
         selectedOpacity: 0.8,
-        disabled: "#111",
+        disabled: "#fff",
         disabledOpacity: 0.8,
-        disabledBackground: "#111",
+        disabledBackground: colorSet.point1,
         focus: "#111",
         focusOpacity: 0.8,
         activatedOpacity: 0.8,
       },
       background: {
-        default: isDarkMode ? "#222" : "#fff",
-        paper: isDarkMode ? "#121212" : "#d8d8d8",
+        default: isDarkMode ? "#333" : "#fff",
+        paper: isDarkMode ? "#0c0c0c" : "#d8d8d8",
+      },
+    },
+    transitions: {
+      duration: {
+        shortest: 150,
+        shorter: 200,
+        short: 250,
+        // most basic recommended timing
+        standard: 300,
+        // this is to be used in complex animations
+        complex: 375,
+        // recommended when something is entering screen
+        enteringScreen: 225,
+        // recommended when something is leaving screen
+        leavingScreen: 195,
+      },
+      easing: {
+        // This is the most common easing curve.
+        easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
+        // Objects enter the screen at full velocity from off-screen and
+        // slowly decelerate to a resting point.
+        easeOut: "cubic-bezier(0.0, 0, 0.2, 1)",
+        // Objects leave the screen at full velocity. They do not decelerate when off-screen.
+        easeIn: "cubic-bezier(0.4, 0, 1, 1)",
+        // The sharp curve is used by objects that may return to the screen at any time.
+        sharp: "cubic-bezier(0.4, 0, 0.6, 1)",
       },
     },
   });

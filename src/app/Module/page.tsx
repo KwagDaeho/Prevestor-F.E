@@ -1,7 +1,7 @@
-function Markets() {
+function Module() {
   return (
     <>
-      <div>SUB PAGE</div>
+      <div>View PAGE</div>
       <div>123</div>
       <div>123</div>
       <div>123</div>
@@ -75,4 +75,4 @@ function Markets() {
   );
 }
 
-export default Markets;
+export default Module;

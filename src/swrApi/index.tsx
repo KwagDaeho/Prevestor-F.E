@@ -1,7 +1,7 @@
 import useSWR from "swr";
 
 // input data가 있을 경우, url에 사전처리 필요
-const getSwrApi = (url: string, fetchOption?: Object) => {
+const swrApi = (url: string, fetchOption?: Object) => {
   const fetcher = (api: string) =>
     fetch(api, fetchOption).then((res) => res.json());
   const swrOption = {
@@ -20,4 +20,4 @@ const getSwrApi = (url: string, fetchOption?: Object) => {
     // isValidating: isValidating,
   };
 };
-export default getSwrApi;
+export default swrApi;

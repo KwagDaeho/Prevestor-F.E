@@ -1,14 +1,23 @@
 import { Button } from "@mui/material";
 import { useThemeToggle } from "src/utils/theme/CustomThemeProvider";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
 
 const CustomThemeToggleButton = () => {
-  const { isDarkMode, toggleTheme } = useThemeToggle();
+  const { toggleTheme } = useThemeToggle();
   return (
     <Button
-      sx={{ marginLeft: "auto" }}
       onClick={toggleTheme}
+      color="info"
       variant="contained">
-      {isDarkMode ? "Light" : "Dark"} Mode
+      <span
+        style={{
+          display: "inline-flex",
+          justifyContent: "center",
+          alignItems: "center",
+          paddingBlock: "5px",
+        }}>
+        <Brightness4Icon sx={{ fontSize: 30 }} />
+      </span>
     </Button>
   );
 };

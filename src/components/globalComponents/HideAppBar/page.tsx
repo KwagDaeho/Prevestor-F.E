@@ -7,8 +7,10 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
 import Gnb from "src/components/Gnb/page";
 import CustomThemeToggleButton from "./CustomThemeToggleButton/page";
-import { RecoilRoot } from "recoil";
-
+import { useRecoilState } from "recoil";
+import { Button } from "@mui/material";
+import { isCashMode } from "src/recoil/atoms";
+import { useEffect } from "react";
 interface Props {
   /**
    * Injected by the documentation to work in an iframe.
@@ -35,19 +37,54 @@ function HideOnScroll(props: Props) {
 }
 
 export default function HideAppBar(props: Props) {
+  const [cashMode, setCashMode] = useRecoilState(isCashMode);
+  const handleCashMode = () => {
+    setCashMode(!cashMode);
+  };
+  useEffect(() => {
+    console.log("Code Check");
+    console.log(window.location.search.substring(6));
+  }, []);
+
+  const handleLogin = () => {
+    const REST_API_KEY = "f381f44ca1404bd573270c48200628fb";
+    const REDIRECT_URI = "http://localhost:3000";
+    const loginLink = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+    window.location.href = loginLink;
+    console.log("Do Login");
+  };
   return (
-    <RecoilRoot>
-      <React.Fragment>
-        <HideOnScroll {...props}>
-          <AppBar color="secondary">
-            <Toolbar className="header-wrap">
-              <Gnb />
-              <CustomThemeToggleButton />
-            </Toolbar>
-          </AppBar>
-        </HideOnScroll>
-        {props.children}
-      </React.Fragment>
-    </RecoilRoot>
+    <React.Fragment>
+      <HideOnScroll {...props}>
+        <AppBar color="secondary">
+          <Toolbar className="header-wrap">
+            <Gnb />
+            <Button
+              style={{
+                marginLeft: "auto",
+                marginRight: "30px",
+              }}
+              size="small"
+              color="primary"
+              onClick={handleCashMode}>
+              <span style={{ padding: "3px 9px" }}>
+                Mode : {cashMode ? "Cash" : "Point"}
+              </span>
+            </Button>
+            <Button
+              style={{
+                marginBlock: "10px",
+              }}
+              size="small"
+              color="primary"
+              onClick={handleLogin}>
+              <span style={{ padding: "3px 9px" }}>로그인</span>
+            </Button>
+            <CustomThemeToggleButton />
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      {props.children}
+    </React.Fragment>
   );
 }

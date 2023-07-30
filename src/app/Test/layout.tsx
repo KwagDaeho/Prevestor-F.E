@@ -1,4 +1,4 @@
-import { DivPrimaryMain } from "src/components/MuiStyled/div";
+import { DivPrimaryMain } from "src/components/MuiStyled/Div";
 
 type PropsType = {
   children: React.ReactElement;
@@ -6,10 +6,13 @@ type PropsType = {
 
 function ExampleLayout({ children }: PropsType) {
   return (
+    <>
     <DivPrimaryMain>
       <h1>It is Test Layout.</h1>
+      </DivPrimaryMain>
       {children}
-    </DivPrimaryMain>
+    
+    </>
   );
 }
 

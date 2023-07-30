@@ -3,6 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  transition: 0.25s;
+  text-decoration: none;
 }
 
 a, a:hover {
@@ -11,10 +13,17 @@ a, a:hover {
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
+  padding-block: 100px;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body > h1, body main {
+  padding-left: 10%;
 }
 body main {
-  padding: 100px 50px;
+  min-height: calc(100vh - 100px);
 }
 
 img {
@@ -46,24 +55,27 @@ header .header-wrap #header_gnb, header .header-wrap #header_gnb_wrap {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
   height: 64px;
 }
 header .header-wrap li, header .header-wrap a {
   display: block;
-  height: 64px;
   font-size: 1em;
   font-weight: 700;
-  line-height: 64px;
 }
 
-.wrap {
-  margin: auto;
+.MuiButtonBase-root {
+  padding: 0 !important;
 }
-
-.leaflet-routing-container td:last-child {
-  padding-left: 10px;
-  min-width: 40px;
+.MuiButtonBase-root > * {
+  width: 100%;
+  height: 100%;
+  padding: 3px 9px;
+}
+.MuiButtonBase-root:hover > * {
+  display: inline-block;
+  color: #fff;
+  filter: drop-shadow(2px 2px 8px rgba(255, 255, 255, 0.7));
 }
 
 @media screen and (min-width: 768px) {
